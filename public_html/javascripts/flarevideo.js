@@ -6,7 +6,7 @@ $.fn.idleTimer = function(options){
   var element  = $(this);
 
   var idle     = false;  
-  var timeout  = options.timeout  || 4000; // 3 seconds
+  var timeout  = options.timeout  || 4000; // 4 seconds
   var interval = options.interval || 1000; // 1 second
   var timeFromLastEvent = 0;
   
@@ -135,6 +135,18 @@ FlareVideo.fn.stop = function(){
   this.pause();
 };
 
+FlareVideo.fn.seek = function(offset){
+  this.video.setCurrentTime(offset);
+};
+
+FlareVideo.fn.r15 = function(offset){ //TODO
+  this.seek((this.video.getCurrentTime())-15);
+};
+
+FlareVideo.fn.a15 = function(offset){ //TODO
+  this.seek((this.video.getCurrentTime())+15);
+};
+
 FlareVideo.fn.togglePlay = function(){
   if (this.state == "playing") {
     this.pause();
@@ -167,10 +179,6 @@ FlareVideo.fn.fullScreen = function(state){
 FlareVideo.fn.toggleFullScreen = function(){
   this.fullScreen(!this.inFullScreen);
 };
-
-FlareVideo.fn.seek = function(offset){
-  this.video.setCurrentTime(offset);
-}
 
 FlareVideo.fn.setVolume = function(num){
   this.video.setVolume(num);
@@ -393,7 +401,7 @@ FlareVideo.eiTriggerReady = function(id) {
   }
 };
 
-FlareVideo.fn.setupButtons = function(){
+FlareVideo.fn.setupButtons = function(){ //TODO
   var play = $("<div />");
   play.addClass("play");
   play.text("Play");
@@ -457,7 +465,7 @@ FlareVideo.fn.createRange = function(){
   return result;
 }
 
-FlareVideo.fn.setupSeek = function(){
+FlareVideo.fn.setupSeek = function(){   //TODO
   var seek = $("<div />");
   seek.addClass("seek");
   
@@ -484,8 +492,8 @@ FlareVideo.fn.setupSeek = function(){
     });
   }, this));
   
-  seek.append(seekRange);
-  this.controls.append(seek);
+//  seek.append(seekRange);
+//  this.controls.append(seek);
 };
 
 FlareVideo.fn.setupVolume = function(){
@@ -567,8 +575,8 @@ FlareVideo.fn.setupTiming = function(){
     this.videoElement.trigger("timeupdate");
   }, this));
   
-  this.controls.append(timeToGo);
-  this.controls.append(timeLeft);
+  //this.controls.append(timeToGo);
+  //this.controls.append(timeLeft);
 };
 
 FlareVideo.fn.setupControls = function(){
@@ -580,9 +588,9 @@ FlareVideo.fn.setupControls = function(){
   this.controls.addClass("disabled");
   
   this.setupButtons();
-  //this.setupSeek();
+  this.setupSeek();
   this.setupVolume();
-  //this.setupTiming();
+  this.setupTiming();
   
   this.element.append(this.controls);
 };
@@ -606,7 +614,7 @@ FlareVideo.fn.setupEvents = function(){
     this.change("playing");
   }, this));
   
-  this.onended($.proxy(function(){
+  this.onended($.proxy(function(){         //TODO
     this.element.removeClass("playing");
     this.fullScreen(false);
     this.stop()
