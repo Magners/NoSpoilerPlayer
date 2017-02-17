@@ -141,10 +141,12 @@ FlareVideo.fn.seek = function(offset){
 
 FlareVideo.fn.r15 = function(offset){ //TODO
   this.seek((this.video.getCurrentTime())-15);
+  this.pause();
 };
 
 FlareVideo.fn.a15 = function(offset){ //TODO
   this.seek((this.video.getCurrentTime())+15);
+  this.pause();
 };
 
 FlareVideo.fn.togglePlay = function(){
@@ -367,7 +369,7 @@ FlareVideo.fn.fixExternalInterface = function(){
     instance[name] = function () { 
       return eval(instance.CallFunction("<invoke name=\"" + name + "\" returntype=\"javascript\">" + 
                   __flash__argumentsToXML(arguments,0) + "</invoke>"));
-    }
+    };
   };
   var methods = ["loadSource", "getStartTime", "getCurrentTime", 
                  "setCurrentTime", "getEndTime", "getVolume", 
@@ -419,6 +421,22 @@ FlareVideo.fn.setupButtons = function(){ //TODO
     this.pause();
   }, this));
   this.controls.append(pause);
+  
+  var r15 = $("<div />");  //TOCHECK
+  r15.addClass("r15");
+  r15.text("r15");
+  r15.click($.proxy(function(){
+    this.r15();
+  }, this));
+  this.controls.append(r15);
+  
+  var a15 = $("<div />");
+  a15.addClass("a15");
+  a15.text("a15");
+  a15.click($.proxy(function(){
+    this.a15();
+  }, this));
+  this.controls.append(a15);
 
   var fullScreen = $("<div />");
   fullScreen.addClass("fullScreen");
