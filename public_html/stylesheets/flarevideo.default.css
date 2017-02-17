@@ -1,7 +1,7 @@
 .flareVideo .controls {
   position: absolute;
   bottom: 20px;
-  height: 35px;
+  height: 57px; /*here*/
   min-width: 250px;
   left: 20%;
   right: 20%;
@@ -22,9 +22,10 @@
   -webkit-transition: opacity 0.5s linear;
   -moz-transition: opacity 0.5s linear;
 }
-
+.flareVideo .controls .r15,
 .flareVideo .controls .play,
 .flareVideo .controls .pause,
+.flareVideo .controls .a15,
 .flareVideo .controls .fullScreen,
 .flareVideo .controls .volMin,
 .flareVideo .controls .volMax { 
@@ -117,7 +118,16 @@
   font-weight: bold;
   text-shadow: 0 1px 1px #000;
 }
-
+.flareVideo .controls .a15{
+   width: 23px;
+  height: 23px;
+  text-indent: -5000px;  
+}
+.flareVideo .controls .r15{
+   width: 23px;
+  height: 23px;
+  text-indent: -5000px;  
+}
 .flareVideo .controls .pause,
 .flareVideo .controls .play {
   width: 23px;
@@ -133,6 +143,14 @@
 .flareVideo .controls .play {
   display: block;
   background: url(../images/default/play.png) no-repeat center center;  
+}
+.flareVideo .controls .r15 {
+  display: block;
+  background: url(../images/default/r15.png) no-repeat center center;  
+}
+.flareVideo .controls .a15 {
+  display: block;
+  background: url(../images/default/a15.png) no-repeat center center;  
 }
 
 .flareVideo.playing .controls .play {
@@ -151,6 +169,17 @@
   position: absolute;
   right: 13px;
   top: 10px;
+}
+
+.flareVideo .controls .r15{
+ position: absolute;
+  left: 25%;
+  top: 6px;   
+}
+.flareVideo .controls .a15{
+ position: absolute;
+  left: 75%;
+  top: 6px;   
 }
 
 .flareVideo .controls .play,

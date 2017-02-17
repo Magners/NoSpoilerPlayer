@@ -514,8 +514,8 @@ FlareVideo.fn.setupSeek = function(){   //TODO
     });
   }, this));
   
-//  seek.append(seekRange);
-//  this.controls.append(seek);
+  seek.append(seekRange); //HERE
+  this.controls.append(seek);
 };
 
 FlareVideo.fn.setupVolume = function(){
@@ -598,7 +598,7 @@ FlareVideo.fn.setupTiming = function(){
   }, this));
   
   this.controls.append(timeToGo);
-  //this.controls.append(timeLeft);
+  this.controls.append(timeLeft); //here
 };
 
 FlareVideo.fn.setupControls = function(){
