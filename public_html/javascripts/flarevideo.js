@@ -140,13 +140,13 @@ FlareVideo.fn.seek = function(offset){
 };
 
 FlareVideo.fn.r15 = function(offset){ //TODO
-  this.seek((this.video.getCurrentTime())-15);
-  this.pause();
+  //this.seek((this.video.getCurrentTime())-15);
+  FlareVideo.seek(this.video.getCurrentTime()-15);
 };
 
 FlareVideo.fn.a15 = function(offset){ //TODO
-  this.seek((this.video.getCurrentTime())+15);
-  this.pause();
+  //this.seek((this.video.getCurrentTime())+15);
+  FlareVideo.seek(this.video.getCurrentTime()+15);
 };
 
 FlareVideo.fn.togglePlay = function(){
