@@ -139,14 +139,18 @@ FlareVideo.fn.seek = function(offset){
   this.video.setCurrentTime(offset);
 };
 
-FlareVideo.fn.r15 = function(offset){ //TODO
+FlareVideo.fn.r15 = function(){ //TODO
   //this.seek((this.video.getCurrentTime())-15);
-  FlareVideo.seek(this.video.getCurrentTime()-15);
+  //FlareVideo.seek(this.video.getCurrentTime()-15);
+  //this.seek(40);
+  this.video.setCurrentTime(this.video.getCurrentTime()-15);
 };
 
-FlareVideo.fn.a15 = function(offset){ //TODO
+FlareVideo.fn.a15 = function(){ //TODO
   //this.seek((this.video.getCurrentTime())+15);
-  FlareVideo.seek(this.video.getCurrentTime()+15);
+  //FlareVideo.seek(this.video.getCurrentTime()+15);
+  //this.seek(40);
+  this.video.setCurrentTime(this.video.getCurrentTime()+15);
 };
 
 FlareVideo.fn.togglePlay = function(){
@@ -593,7 +597,7 @@ FlareVideo.fn.setupTiming = function(){
     this.videoElement.trigger("timeupdate");
   }, this));
   
-  //this.controls.append(timeToGo);
+  this.controls.append(timeToGo);
   //this.controls.append(timeLeft);
 };
 
@@ -616,7 +620,7 @@ FlareVideo.fn.setupControls = function(){
 FlareVideo.fn.fallbackToFlash = function(){
   this.useNative = false;
   this.element.unload();
-  this.remove()
+  this.remove();
   this.setupElement();
   this.setupFlash();
 };
@@ -635,7 +639,7 @@ FlareVideo.fn.setupEvents = function(){
   this.onended($.proxy(function(){         //TODO
     this.element.removeClass("playing");
     this.fullScreen(false);
-    this.stop()
+    this.stop();
     this.change("ended");
   }, this));
 
