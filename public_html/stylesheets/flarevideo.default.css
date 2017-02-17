@@ -119,13 +119,13 @@
   text-shadow: 0 1px 1px #000;
 }
 .flareVideo .controls .a15{
-   width: 23px;
-  height: 23px;
+   width: 35px;
+  height: 35px;
   text-indent: -5000px;  
 }
 .flareVideo .controls .r15{
-   width: 23px;
-  height: 23px;
+   width: 35px;
+  height: 35px;
   text-indent: -5000px;  
 }
 .flareVideo .controls .pause,
@@ -173,13 +173,13 @@
 
 .flareVideo .controls .r15{
  position: absolute;
-  left: 35%;
-  top: 6px;   
+  left: 32%;
+  top: 1px;   
 }
 .flareVideo .controls .a15{
  position: absolute;
   left: 65%;
-  top: 6px;   
+  top: 1px;   
 }
 
 .flareVideo .controls .play,
