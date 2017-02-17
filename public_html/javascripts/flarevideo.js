@@ -135,10 +135,6 @@ FlareVideo.fn.stop = function(){
   this.pause();
 };
 
-FlareVideo.fn.seek = function(offset){
-  this.video.setCurrentTime(offset);
-};
-
 FlareVideo.fn.r15 = function(){ //TODO
   //this.seek((this.video.getCurrentTime())-15);
   //FlareVideo.seek(this.video.getCurrentTime()-15);
@@ -184,6 +180,10 @@ FlareVideo.fn.fullScreen = function(state){
 
 FlareVideo.fn.toggleFullScreen = function(){
   this.fullScreen(!this.inFullScreen);
+};
+
+FlareVideo.fn.seek = function(offset){
+  this.video.setCurrentTime(offset);
 };
 
 FlareVideo.fn.setVolume = function(num){
@@ -514,8 +514,8 @@ FlareVideo.fn.setupSeek = function(){   //TODO
     });
   }, this));
   
-  seek.append(seekRange); //HERE
-  this.controls.append(seek);
+  //seek.append(seekRange); //HERE
+  //this.controls.append(seek);
 };
 
 FlareVideo.fn.setupVolume = function(){
@@ -597,8 +597,8 @@ FlareVideo.fn.setupTiming = function(){
     this.videoElement.trigger("timeupdate");
   }, this));
   
-  this.controls.append(timeToGo);
-  this.controls.append(timeLeft); //here
+  //this.controls.append(timeToGo);
+  //this.controls.append(timeLeft); //here
 };
 
 FlareVideo.fn.setupControls = function(){
